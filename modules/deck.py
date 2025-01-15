@@ -1,24 +1,31 @@
 import random
 from modules.card import Card
+from modules.player import Player
 suits = ('Denari', 'Coppe', 'Spade', 'Bastoni')
 
 
 class Deck:
-    def __init__(self, number_of_decks):
-        self.number_of_decks = number_of_decks
+    def __init__(self):
         self.cards = []
-        self.create(self.number_of_decks)
+        self.create()
 
     def __repr__(self):
         return 'Game deck has {} cards remaining'.format(len(self.cards))
 
-    def create(self, number_of_decks):
-        decks = [Card(rank, suit) for suit in suits for rank in range(1, 11)
-                 for deck in range(number_of_decks)]
+    def create(self):
+        decks = [Card(rank, suit) for suit in suits for rank in range(1, 11)]
         self.cards.extend(decks)
 
     def shuffle(self):
         self.cards = random.sample(self.cards, len(self.cards))
+
+    def starting_hand(self):
+        your_cards = [self.cards[0],self.cards[1],self.cards[2]]
+        other_cards = [self.cards[3],self.cards[4],self.cards[5]]
+        players = [Player(your_cards),Player(other_cards)]
+        last = self.cards[6]
+        self.cards.append(last)
+        return players
 
     def draw(self):
         if len(self.cards) == 0:
