@@ -17,6 +17,9 @@ class Card:
                 self.rank, self.short_suit)
         else:
             self.image_location = "static/images/RETRO.jpg"  
+    
+    def __str__(self):
+        return f"{self.rank} di {self.suit}"
         
     @property
     def image(self):

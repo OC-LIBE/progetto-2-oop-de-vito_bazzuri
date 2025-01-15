@@ -20,11 +20,14 @@ class Deck:
         self.cards = random.sample(self.cards, len(self.cards))
 
     def starting_hand(self):
-        your_cards = [self.cards[0],self.cards[1],self.cards[2]]
-        other_cards = [self.cards[3],self.cards[4],self.cards[5]]
+        your_cards = []
+        other_cards = []
+        for i in range(3):
+            your_cards.append(self.draw)
+            f"{your_cards}"
+            other_cards.append(self.draw)
+            f"{your_cards[0]}"
         players = [Player(your_cards),Player(other_cards)]
-        last = self.cards[6]
-        self.cards.append(last)
         return players
 
     def draw(self):
