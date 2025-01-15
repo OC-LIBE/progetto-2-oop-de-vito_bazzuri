@@ -1,6 +1,6 @@
 import random
 from modules.card import Card
-suits = ('Spades', 'Hearts', 'Clubs', 'Diamonds')
+suits = ('Denari', 'Coppe', 'Spade', 'Bastoni')
 
 
 class Deck:
@@ -13,7 +13,7 @@ class Deck:
         return 'Game deck has {} cards remaining'.format(len(self.cards))
 
     def create(self, number_of_decks):
-        decks = [Card(rank, suit) for suit in suits for rank in range(1, 14)
+        decks = [Card(rank, suit) for suit in suits for rank in range(1, 11)
                  for deck in range(number_of_decks)]
         self.cards.extend(decks)
 
