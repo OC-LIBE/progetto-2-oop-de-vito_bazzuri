@@ -12,9 +12,12 @@ class Card:
         elif self.suit == "Bastoni":
             self.short_suit = "B"
 
-        self.image_location = "static/images/{}{}.jpg".format(
-            self.rank, self.short_suit)
-
+        if rank != 0:
+            self.image_location = "static/images/{}{}.jpg".format(
+                self.rank, self.short_suit)
+        else:
+            self.image_location = "static/images/RETRO.jpg"  
+        
     @property
     def image(self):
         return self.image_location
