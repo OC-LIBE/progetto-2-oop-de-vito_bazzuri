@@ -12,7 +12,8 @@ if 'deck' not in st.session_state:
     st.session_state['deck'] = deck
 
 if 'players' not in st.session_state:
-    players = [Player(deck.starting_hand()),Player(deck.starting_hand())]
+    cards = deck.starting_hand()
+    players = [Player(cards[0]),Player(cards[1])]
     deck.backseventh()
     st.session_state['players'] = players
 
