@@ -4,7 +4,7 @@ from modules.player import Player
 suits = ('Denari', 'Coppe', 'Spade', 'Bastoni')
 
 
-class Deck:
+class Deck :
     def __init__(self):
         self.cards = []
         self.create()
