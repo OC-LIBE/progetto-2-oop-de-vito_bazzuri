@@ -20,15 +20,14 @@ class Deck :
         self.cards = random.sample(self.cards, len(self.cards))
 
     def starting_hand(self):
-        your_cards = []
-        other_cards = []
+        cards = []
         for i in range(3):
-            your_cards.append(self.draw)
-            f"{your_cards}"
-            other_cards.append(self.draw)
-            f"{your_cards[0]}"
-        players = [Player(your_cards),Player(other_cards)]
-        return players
+            cards.append(self.draw())
+        return cards
+
+    def backseventh(self):
+        back = self.draw()
+        self.cards.append(back)
 
     def draw(self):
         if len(self.cards) == 0:

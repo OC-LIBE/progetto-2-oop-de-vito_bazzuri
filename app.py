@@ -10,17 +10,23 @@ card_width=95
 if 'deck' not in st.session_state:
     deck = Deck()
     st.session_state['deck'] = deck
-    players = deck.starting_hand()
-    players = players[0]
 
+if 'players' not in st.session_state:
+    players = [Player(deck.starting_hand()),Player(deck.starting_hand())]
+    deck.backseventh()
+    st.session_state['players'] = players
+
+
+deck = st.session_state['deck']
+players = st.session_state['players']
 
 st.markdown("## Shuffling deck")
 shuffle_button = st.button("Shuffle")
 if shuffle_button:
     deck.shuffle()
-st.image([card.image for card in deck.cards], width=card_width)
-
-st.markdown("## Hand-Like View")
-st.image([card.image for card in players.cards], width=card_width)
 
 st.image([card.image for card in deck.cards], width=card_width)
+
+st.markdown("## Hand deck")
+st.image([card.image for card in players[0].cards], width=card_width)
+st.image([card.image for card in players[1].cards], width=card_width)
