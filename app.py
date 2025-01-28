@@ -17,7 +17,7 @@ if 'players' not in st.session_state:
     deck.backseventh()
     st.session_state['players'] = players
 
-
+# FORSE TRALASCIABILI
 deck = st.session_state['deck']
 players = st.session_state['players']
 

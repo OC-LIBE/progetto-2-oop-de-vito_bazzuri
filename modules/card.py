@@ -1,7 +1,8 @@
 class Card:
-    def __init__(self, rank, suit):
+    def __init__(self, rank, suit, flip = False):
         self.rank = rank
         self.suit = suit
+        self.flip = flip
 
         if self.suit == "Denari":
             self.short_suit = "D"
@@ -12,7 +13,7 @@ class Card:
         elif self.suit == "Bastoni":
             self.short_suit = "B"
 
-        if rank != 0:
+        if not self.flip:
             self.image_location = "static/images/{}{}.jpg".format(
                 self.rank, self.short_suit)
         else:

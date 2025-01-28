@@ -23,7 +23,6 @@ class Deck :
         your = []
         oppon = []
         for i in range(3):
-            your.append(self.draw())
             oppon.append(self.draw())
         return [your,oppon]
 
