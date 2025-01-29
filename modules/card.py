@@ -28,7 +28,7 @@ class Card:
             self.image_location = "static/images/{}{}.jpg".format(
             self.rank, self.short_suit)
         else:
-            self.image_location = "static/images/RETRO.jpg"  
+            self.image_location = "static/images/RETRO.png"  
 
     @property
     def image(self):

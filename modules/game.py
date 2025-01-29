@@ -6,6 +6,7 @@ from modules.player import Player
 class Game:
     def __init__(self):
         self.deck = Deck()
+        self.deck.shuffle()
         cards = self.starting_hand()
         self.you = Player(cards=cards[0],opponent=False)
         self.opponent = Player(cards=cards[1])

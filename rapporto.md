@@ -9,3 +9,5 @@ Oggi abbiamo creato le funzioni per cominciare a giocare, starting_hand() che da
 # 29.01.2025 - terza settimana 
 ## Loris Bazzuri
 Oggi abbiamo deciso di far diventare il game un oggetto (diventando una class Game), riportando dunque l' app.py come file principale. Per evitare problemi futuri abbiamo inoltre creato un file di debug (debug.py) per il nostro file principale. In seguito oggi abbiamo anche creato un oggetto table (class Table) in cui ho iniziato a creare le regolette del gioco quando si buttano delle carte (quando ci sono delle carte attive): regole come chi vince la mano in base alla carta giocata, e poi che il vincitore della mano prenda le carte. E stiamo poi lavorando a una funzione che giri le carte.
+## Filippo De Vito
+In seguito migliorata la grafica quando si gioca senza guardare ancora però la logica dietro al gioco (Commit: Update Grafico).

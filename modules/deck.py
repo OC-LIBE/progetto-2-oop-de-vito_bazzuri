@@ -34,3 +34,7 @@ class Deck :
     @property
     def remaining(self):
         return len(self.cards)
+    
+    @property
+    def last(self):
+        return self.cards[self.remaining-1]
