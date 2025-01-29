@@ -1,8 +1,8 @@
 import streamlit as st
-from modules.deck import Deck
+from modules.game import Game
 from modules.player import Player
 
-if "game" not in st.session_state :
+'''if "game" not in st.session_state :
       st.session_state['game'] = False
 
 if not st.session_state['game']:
@@ -23,6 +23,14 @@ if 'players' not in st.session_state:
     cards = deck.starting_hand()
     players = [Player(cards[0]),Player(cards[1])]
     deck.backseventh()
-    st.session_state['players'] = players
+    st.session_state['players'] = players'''
 
-st.image([card.image for card in deck.cards], width=95)
+if 'game' not in st.session_state:
+    st.session_state['game'] = Game()
+
+st.image([card.image for card in st.session_state['game'].deck.cards], width=95)
+st.image([card.image for card in st.session_state['game'].you.cards], width=95)
+st.image([card.image for card in st.session_state['game'].opponent.cards], width=95)
+
+if st.button("Reload"):
+    st.rerun

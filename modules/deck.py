@@ -19,17 +19,6 @@ class Deck :
     def shuffle(self):
         self.cards = random.sample(self.cards, len(self.cards))
 
-    def starting_hand(self):
-        your = []
-        oppon = []
-        for i in range(3):
-            oppon.append(self.draw())
-        return [your,oppon]
-
-    def backseventh(self):
-        back = self.draw()
-        self.cards.append(back)
-
     def draw(self):
         if len(self.cards) == 0:
             return False
