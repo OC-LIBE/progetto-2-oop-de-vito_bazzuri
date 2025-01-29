@@ -12,21 +12,31 @@ class Card:
             self.short_suit = "S"
         elif self.suit == "Bastoni":
             self.short_suit = "B"
+        
+        self.image_set()
 
+    def __str__(self):
+        return f"{self.rank} di {self.suit}"
+    
+    def turn(self):
+        self.flip = not self.flip # True to False, False to True
+        self.image_set()
+        return self
+        
+    def image_set(self):
         if not self.flip:
             self.image_location = "static/images/{}{}.jpg".format(
             self.rank, self.short_suit)
         else:
-<<<<<<< Updated upstream
-            self.image_location = "static/images/RETRO.jpg"
-        
-=======
             self.image_location = "static/images/RETRO.jpg"  
+
+    @property
+    def image(self):
+        return self.image_location
     
+    @property
     def points(self):
-        if self.rank == 2 or 4 or 5 or 6 or 7:
-            self.points == 0
-        elif self.rank == 8 :
+        if self.rank == 8 :
             self.points == 2
         elif self.rank == 9:
             self.points == 3
@@ -34,21 +44,8 @@ class Card:
             self.points == 4
         elif self.rank == 3:
             self.points == 10 
-        else: 
+        elif self.rank == 1: 
             self.points == 11
-
->>>>>>> Stashed changes
-    def __str__(self):
-        return f"{self.rank} di {self.suit}"
-    
-    def hide(self):
-        self.flip = True
-        return self
-
-    def show(self):
-        self.flip = False
-        return self
-        
-    @property
-    def image(self):
-        return self.image_location
+        else:
+            self.points == 0
+        return self.points

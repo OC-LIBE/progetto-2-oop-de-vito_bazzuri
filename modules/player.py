@@ -10,7 +10,7 @@ class Player:
             
 
     def switch(self):
-        i = 0
+        temp = []
         for card in self.cards:
-            self.cards[i] = card.hide()
-            i = 1+ i
+            temp.append(card.turn())
+        self.cards = temp

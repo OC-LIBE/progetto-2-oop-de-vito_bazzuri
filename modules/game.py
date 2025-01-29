@@ -7,8 +7,8 @@ class Game:
     def __init__(self):
         self.deck = Deck()
         cards = self.starting_hand()
-        self.you = Player(cards[0],opponent=False)
-        self.opponent = Player(cards[1])
+        self.you = Player(cards=cards[0],opponent=False)
+        self.opponent = Player(cards=cards[1])
         self.backseventh()
 
     def starting_hand(self):
