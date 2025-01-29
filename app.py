@@ -28,9 +28,12 @@ if 'players' not in st.session_state:
 if 'game' not in st.session_state:
     st.session_state['game'] = Game()
 
-st.image([card.image for card in st.session_state['game'].deck.cards], width=95)
-st.image([card.image for card in st.session_state['game'].you.cards], width=95)
-st.image([card.image for card in st.session_state['game'].opponent.cards], width=95)
+game = st.session_state['game']
+
+st.image([card.image for card in game.deck.cards], width=95)
+st.image("static/images/RETRO.jpg", width = 95)
+st.image([card.image for card in game.you.cards], width=95)
+st.image([card.image for card in game.opponent.cards], width=95)
 
 if st.button("Reload"):
     st.rerun

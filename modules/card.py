@@ -15,12 +15,20 @@ class Card:
 
         if not self.flip:
             self.image_location = "static/images/{}{}.jpg".format(
-                self.rank, self.short_suit)
+            self.rank, self.short_suit)
         else:
-            self.image_location = "static/images/RETRO.jpg"  
-    
+            self.image_location = "static/images/RETRO.jpg"
+        
     def __str__(self):
         return f"{self.rank} di {self.suit}"
+    
+    def hide(self):
+        self.flip = True
+        return self
+
+    def show(self):
+        self.flip = False
+        return self
         
     @property
     def image(self):

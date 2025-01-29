@@ -1,12 +1,16 @@
 import random
-from modules.card import Card
 
 
 class Player:
-    def __init__(self,card):
+    def __init__(self,cards,opponent=True):
         self.cards = []
-        self.cards.extend(card)
+        self.cards.extend(cards)
+        if opponent:
+            self.switch()
+            
 
-
-    def add_card(self,card):
-        self.cards.extend(card)
+    def switch(self):
+        i = 0
+        for card in self.cards:
+            self.cards[i] = card.hide()
+            i = 1+ i

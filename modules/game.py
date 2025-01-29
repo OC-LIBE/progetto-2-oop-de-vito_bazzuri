@@ -1,13 +1,14 @@
 import streamlit as st
+from modules.card import Card
 from modules.deck import Deck
 from modules.player import Player
 
 class Game:
     def __init__(self):
         self.deck = Deck()
-        card = self.starting_hand()
-        self.you = Player(card[0])
-        self.opponent = Player(card[1])
+        cards = self.starting_hand()
+        self.you = Player(cards[0],opponent=False)
+        self.opponent = Player(cards[1])
         self.backseventh()
 
     def starting_hand(self):
