@@ -17,8 +17,27 @@ class Card:
             self.image_location = "static/images/{}{}.jpg".format(
             self.rank, self.short_suit)
         else:
+<<<<<<< Updated upstream
             self.image_location = "static/images/RETRO.jpg"
         
+=======
+            self.image_location = "static/images/RETRO.jpg"  
+    
+    def points(self):
+        if self.rank == 2 or 4 or 5 or 6 or 7:
+            self.points == 0
+        elif self.rank == 8 :
+            self.points == 2
+        elif self.rank == 9:
+            self.points == 3
+        elif self.rank == 10:
+            self.points == 4
+        elif self.rank == 3:
+            self.points == 10 
+        else: 
+            self.points == 11
+
+>>>>>>> Stashed changes
     def __str__(self):
         return f"{self.rank} di {self.suit}"
     
