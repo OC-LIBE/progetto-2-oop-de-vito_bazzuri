@@ -2,10 +2,18 @@ import streamlit as st
 from modules.deck import Deck
 from modules.player import Player
 
-st.set_page_config(
-   layout="wide",
-)
-card_width=95
+if "game" not in st.session_state :
+      st.session_state['game'] = False
+
+if not st.session_state['game']:
+    if st.button("new game"):
+        st.session_state['game'] = True
+        st.write("bravo fra")
+    else:
+         st.write("starta un game brother")
+else:
+     if st.button("quit_game"):
+        st.write("mannaggia briscola è così bella, dove vai???")
 
 if 'deck' not in st.session_state:
     deck = Deck()
@@ -17,17 +25,4 @@ if 'players' not in st.session_state:
     deck.backseventh()
     st.session_state['players'] = players
 
-# FORSE TRALASCIABILI
-deck = st.session_state['deck']
-players = st.session_state['players']
-
-st.markdown("## Shuffling deck")
-shuffle_button = st.button("Shuffle")
-if shuffle_button:
-    deck.shuffle()
-
-st.image([card.image for card in deck.cards], width=card_width)
-
-st.markdown("## Hand deck")
-st.image([card.image for card in players[0].cards], width=card_width)
-st.image([card.image for card in players[1].cards], width=card_width)
+st.image([card.image for card in deck.cards], width=95)
