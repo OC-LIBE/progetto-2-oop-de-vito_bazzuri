@@ -8,17 +8,17 @@ class Game:
         self.deck = Deck()
         self.deck.shuffle()
         cards = self.starting_hand()
-        self.you = Player(cards=cards[0],opponent=False)
-        self.opponent = Player(cards=cards[1])
+        self.player = Player(cards=cards[0],bot=False)
+        self.bot = Player(cards=cards[1],bot=True)
         self.backseventh()
 
     def starting_hand(self):
-        your = []
-        oppon = []
+        player_hand = []
+        bot_hand = []
         for i in range(3):
-            your.append(self.deck.draw())
-            oppon.append(self.deck.draw())
-        return [your,oppon]
+            player_hand.append(self.deck.draw())
+            bot_hand.append(self.deck.draw())
+        return [player_hand,bot_hand]
 
     def backseventh(self):
         back = self.deck.draw()

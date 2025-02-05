@@ -2,10 +2,10 @@ import random
 
 
 class Player:
-    def __init__(self,cards,opponent=True):
+    def __init__(self,cards,bot):
         self.cards = []
         self.cards.extend(cards)
-        if opponent:
+        if bot:
             self.switch()
             
 
