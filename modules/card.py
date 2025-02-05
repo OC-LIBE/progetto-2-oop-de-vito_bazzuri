@@ -47,13 +47,3 @@ class Card:
     @property
     def image(self):
         return self.image_location
-    
-    @property
-    def strenght(self):
-        
-        return self.points
-    
-    @property
-    def points(self):
-        
-        return self.points
