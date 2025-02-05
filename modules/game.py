@@ -11,7 +11,6 @@ class Game:
         self.player = Player(cards=cards[0],bot=False)
         self.bot = Player(cards=cards[1],bot=True)
         self.backseventh()
-        self.table = Table(self.deck.last, None, None, None, self.bot, self.player)
 
     def starting_hand(self):
         player_hand = []

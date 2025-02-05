@@ -18,7 +18,7 @@ class Card:
             self.point = 11
         elif self.rank == 3:
             self.point = 10
-        if self.rank == 10:
+        elif self.rank == 10:
             self.point = 4
         elif self.rank == 9:
             self.point = 3
@@ -47,13 +47,3 @@ class Card:
     @property
     def image(self):
         return self.image_location
-    
-    @property
-    def strenght(self):
-        
-        return self.points
-    
-    @property
-    def points(self):
-        
-        return self.points
