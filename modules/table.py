@@ -10,15 +10,19 @@ class Table:
         self.second = second
    
     def win_hand(self):
-       # somebody who had won the hand because he had the card more lawsful
-        if self.first_card.point >= self.second_card.point:
-            self.first.score.extend([self.second_card, self.first_card])
+        if self.first_card.suit == self.second_card.suit:
+            # this is for the same suit (also "briscola")
+            if self.first_card.point >= self.second_card.point:
+                self.first.score.extend([self.second_card, self.first_card])
+            else:
+                self.second.score.extend([self.second_card, self.first_card])
+        elif self.first_card.suit != self.second_card.suit and self.first_card.suit !=  self.briscola.suit and self.second_card.suit !=  self.briscola.suit:
+            # this is when in table there are two cards with differents suits (without "briscola")
+                self.first.score.extend([self.second_card, self.first_card])
         else:
-             self.second.score.extend([self.second_card, self.first_card])
-
-
-    def laws(self):
-        if self.first_card == self.briscola and self.second_card != self.briscola:
-            self.first win_hand
-        elif self.second_card == self.briscola and self.first_card != self.briscola:
-        for self.first_card in self.short.suit:
+            # this is when in table there are two cards with differents suits (with "briscola")
+            if self.second_card.suit == self.briscola.suit:
+                self.second.score.extend([self.second_card, self.first_card])
+            else:
+                self.first.score.extend([self.second_card, self.first_card])
+                
