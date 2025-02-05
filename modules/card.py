@@ -15,15 +15,15 @@ class Card:
 
         # Punti nell'essere presi e Forza nel prendere
         if self.rank == 1:
-            self.points == 11
+            self.point = 11
         elif self.rank == 3:
-            self.points == 10
+            self.point = 10
         if self.rank == 10:
-            self.points == 4
+            self.point = 4
         elif self.rank == 9:
-            self.points == 3
+            self.point = 3
         elif self.rank == 8:
-            self.points == 2
+            self.point = 2
         else: # Da arrotondare verso il basso (0) per il conteggio dei punti
             self.point = self.rank/10
         
