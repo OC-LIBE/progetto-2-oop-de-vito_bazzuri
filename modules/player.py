@@ -4,11 +4,11 @@ import random
 class Player:
     def __init__(self,cards,bot):
         self.cards = []
+        self.score = []
         self.cards.extend(cards)
         if bot:
             self.switch()
             
-
     def switch(self):
         temp = []
         for card in self.cards:

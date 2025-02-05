@@ -12,6 +12,20 @@ class Card:
             self.short_suit = "S"
         elif self.suit == "Bastoni":
             self.short_suit = "B"
+
+        # Punti nell'essere presi e Forza nel prendere
+        if self.rank == 1:
+            self.points == 11
+        elif self.rank == 3:
+            self.points == 10
+        if self.rank == 10:
+            self.points == 4
+        elif self.rank == 9:
+            self.points == 3
+        elif self.rank == 8:
+            self.points == 2
+        else: # Da arrotondare verso il basso (0) per il conteggio dei punti
+            self.point = self.rank/10
         
         self.image_set()
 
@@ -35,17 +49,11 @@ class Card:
         return self.image_location
     
     @property
+    def strenght(self):
+        
+        return self.points
+    
+    @property
     def points(self):
-        if self.rank == 8 :
-            self.points == 2
-        elif self.rank == 9:
-            self.points == 3
-        elif self.rank == 10:
-            self.points == 4
-        elif self.rank == 3:
-            self.points == 10 
-        elif self.rank == 1: 
-            self.points == 11
-        else:
-            self.points == 0
+        
         return self.points
