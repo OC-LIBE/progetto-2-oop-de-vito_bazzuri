@@ -1,33 +1,24 @@
 from modules.card import Card
 from modules.deck import Deck
-from modules.player import Player
 
 class Table:
-    def __init__ (self, briscola,bot_card, player_card, win_hand, bot, player ):
+    def __init__ (self, briscola, first_card,second_card, first, second):
         self.briscola = briscola
-        self.bot_card =bot_card
-        self.player_card = player_card
-        self.win_hand = win_hand
-        self.player = player 
-        self.bot = bot
+        self.second_card =second_card
+        self.first_card = first_card
+        self.first = first 
+        self.second = second
    
     def win_hand(self):
-       # somebody who had won the hand
-        if self.player_card
-    def power(self):
-        if self.player_card == self.briscola and self.bot_card != self.briscola:
-            self.player win_hand
-        elif self.bot_card == self.briscola and self.player_card != self.briscola:
-        for self.player_card in self.short.suit:
-            
+       # somebody who had won the hand because he had the card more lawsful
+        if self.first_card.point >= self.second_card.point:
+            self.first.score.extend([self.second_card, self.first_card])
+        else:
+             self.second.score.extend([self.second_card, self.first_card])
 
 
-
-
-    
-
-
-
-
-       
-if 'table' not in st.session_state:
+    def laws(self):
+        if self.first_card == self.briscola and self.second_card != self.briscola:
+            self.first win_hand
+        elif self.second_card == self.briscola and self.first_card != self.briscola:
+        for self.first_card in self.short.suit:
