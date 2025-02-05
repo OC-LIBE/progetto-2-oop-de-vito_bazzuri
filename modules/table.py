@@ -3,19 +3,22 @@ from modules.deck import Deck
 from modules.player import Player
 
 class Table:
-    def __init__ (self, briscola, your_cards, my_cards; win_hand, opponent, me ):
+    def __init__ (self, briscola,bot_card, player_card, win_hand, bot, player ):
         self.briscola = briscola
-        self.your_cards = your_cards
-        self.my_cards = my_cards
+        self.your_card =bot_card
+        self.player_card = player_card
         self.win_hand = win_hand
-        self.me = me 
-        self.opponent = opponent
+        self.player = player 
+        self.bot = bot
    
+    def win_hand(self):
+       # somebody who had won the hand
+        if self.player_card
     def power(self):
-        if self.my_cards == self.briscola and self.your_cards != self.briscola:
-            self.me 
-        elif self.your_cards == self.briscola and self.my_cards != self.briscola:
-        for self.my_cards in self.short.suit:
+        if self.player_card == self.briscola and self.your_card != self.briscola:
+            self.player win_hand
+        elif self.your_card == self.briscola and self.player_card != self.briscola:
+        for self.player_card in self.short.suit:
             
 
 
