@@ -24,5 +24,4 @@ class Table:
             if self.second_card.suit == self.briscola.suit:
                 self.second.score.extend([self.second_card, self.first_card])
             else:
-                self.first.score.extend([self.second_card, self.first_card])
-                
+                self.first.score.extend([self.second_card, self.first_card])          
