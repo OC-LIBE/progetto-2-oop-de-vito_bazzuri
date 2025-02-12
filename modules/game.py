@@ -9,7 +9,7 @@ class Game:
         self.deck.shuffle()
         cards = self.starting_hand()
         self.player = Player(cards=cards[0],bot=False)
-        self.bot = Player(cards=cards[1],bot=True)
+        self.bot = Player(cards=cards[1],bot=False)
         self.backseventh()
         self.table = Table(briscola=self.deck.last,first_card=None,second_card=None,first=None,second=None)
 

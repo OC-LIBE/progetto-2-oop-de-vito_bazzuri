@@ -4,26 +4,33 @@ from modules.player import Player
 
 # SETTING UP THE GAME
 if 'game' not in st.session_state:
-    st.session_state['grafica'] = -1
+    st.session_state['turno'] = -1
     st.session_state['game'] = Game()
 
 st.set_page_config(layout="wide")
 game = st.session_state['game']
 
-def colonna(nr_col=0):
-    st.image(game.bot.cards[nr_col].image)
+def colonna_bot(nr_col=0):
+    if game.bot.cards[nr_col] != None:
+        st.image(game.bot.cards[nr_col].image)
+    else:
+        st.image("static/images/VUOTO.png")
+
+def colonna_centro(nr_col=0):
     if nr_col == 0:
         st.image("static/images/RETRO.png", caption= game.deck.remaining)
     elif nr_col == 1:
         st.image("static/images/VUOTO.png",width=89) # Width per motivi estetici
     elif nr_col == 2:
         st.image(game.deck.last.image, caption = "Briscola")
-    if st.session_state['grafica'] != nr_col and game.player.cards[nr_col] != None:
+
+def colonna_player(nr_col=0):
+    if st.session_state['turno'] != nr_col and game.player.cards[nr_col] != None:
         st.image(game.player.cards[nr_col].image)
         st.write(game.player.cards[nr_col])
-        if st.session_state['grafica'] == -1:
+        if st.session_state['turno'] == -1:
             if st.button("Gioca",key=nr_col):
-                st.session_state['grafica'] = nr_col
+                st.session_state['turno'] = 0
                 if game.table.first_card == None:
                     game.table.first_card = game.player.cards[nr_col]
                 else:
@@ -41,12 +48,25 @@ with col4:
         st.image("static/images/VUOTO.png")
         st.image(game.table.second_card.image)
 with col1:
-    colonna(0)
+    colonna_bot(0)
+    colonna_centro(0)
+    colonna_player(0)
 with col3:
-    colonna(1)
+    colonna_bot(1)
+    colonna_centro(1)
+    colonna_player(1)
 with col5:
-    colonna(2)
+    colonna_bot(2)
+    colonna_centro(2)
+    colonna_player(2)
 
+if st.session_state['turno'] == 0: # Se tocca al Bot giocare
+    st.session_state['turno'] = 1 
+    if game.table.first_card == None:
+        game.table.first_card = game.bot.cards[0]
+    else:
+        game.table.second_card = game.bot.cards[0]
+    game.bot.cards[0] = None
 
 if st.button("Reload"):
     st.rerun
