@@ -12,11 +12,11 @@ game = st.session_state['game']
 # MANO AVVERSARIO
 col1, col2, col3, col0 = st.columns([0.1,0.1,0.1,0.7]) # Col0 è vuota per lasciare spazio vuoto -> Grafica
 with col1:
-    st.image(game.opponent.cards[0].image)
+    st.image(game.bot.cards[0].image)
 with col2:
-    st.image(game.opponent.cards[1].image)
+    st.image(game.bot.cards[1].image)
 with col3:
-    st.image(game.opponent.cards[2].image)
+    st.image(game.bot.cards[2].image)
 
 # CENTRO TAVOLA
 col1, col2, col3 = st.columns([0.2,0.2,0.6])
@@ -32,18 +32,23 @@ with col3: #TABLE
 # MANO TUA
 col1, col2, col3, col0 = st.columns([0.1,0.1,0.1,0.7]) # Col0 è vuota per lasciare spazio vuoto -> Grafica
 with col1:
-    st.image(game.you.cards[0].image)
-    st.write(game.you.cards[0])
-    st.button("Gioca",key=0)
+    st.image(game.player.cards[0].image)
+    st.write(game.player.cards[0])
+    if st.button("Gioca",key=0):
+        del(game.player.cards[0])
+        game.table.first_card = game.player.cards[0]
 with col2:
-    st.image(game.you.cards[1].image)
-    st.write(game.you.cards[1])
-    st.button("Gioca",key=1)
+    st.image(game.player.cards[1].image)
+    st.write(game.player.cards[1])
+    if st.button("Gioca",key=1):
+        del(game.player.cards[1])
+        game.table.first_card = game.player.cards[1]
 with col3:
-    st.image(game.you.cards[2].image)
-    st.write(game.you.cards[2])
-    st.button("Gioca",key=3)
-
+    st.image(game.player.cards[2].image)
+    st.write(game.player.cards[2])
+    if st.button("Gioca",key=3):
+        del(game.player.cards[2])
+        game.table.first_card = game.player.cards[2]
 
 
 if st.button("Reload"):
