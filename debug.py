@@ -31,4 +31,3 @@ st.image([card.image for card in deck.cards], width=card_width)
 st.markdown("## Hand deck")
 st.image([card.image for card in players[0].cards], width=card_width)
 st.image([card.image for card in players[1].cards], width=card_width)
-
