@@ -1,5 +1,4 @@
-from modules.card import Card
-from modules.deck import Deck
+import streamlit as st
 
 class Table:
     def __init__ (self, briscola, first_card,second_card, first, second):
@@ -24,4 +23,6 @@ class Table:
             if self.second_card.suit == self.briscola.suit:
                 self.second.score.extend([self.second_card, self.first_card])
             else:
-                self.first.score.extend([self.second_card, self.first_card])          
+                self.first.score.extend([self.second_card, self.first_card])     
+   
+  

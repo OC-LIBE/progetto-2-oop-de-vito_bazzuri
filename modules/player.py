@@ -19,3 +19,4 @@ class Player:
         for card in self.score:
             points_sum += math.floor(card.point)
         return points_sum
+
