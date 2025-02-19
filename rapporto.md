@@ -15,6 +15,9 @@ In seguito migliorata la grafica quando si gioca senza guardare ancora però la 
 ## Filippo De Vito
 Oggi abbiamo lavorato alla logica dietro alla vittoria tra due carte diverse (nel table). Anche se non è ancora stata nè testata, nè collegata alla classe game e dunque alla visualizzazione grafica di questa.
 Abbiamo creato una funzione per calcolare il punteggio finale di un player (points_sum) grazie ad una variabile delle carte (points) utilizzata anche per determinare la "forza" della carta (ossia, su chi vince, e su chi perde).
-# 12.02.2025 - quinta settimana 
+# 12.02.2025 - Quinta settimana 
 ## Loris Bazzuri
 Oggi abbiamo sviluppato ulteriormente l'interfaccia grafica, sistemando il tavolo di gioco aggiungendo una colonna di separazione tra ogni carta(sia mie, sia del bot). Inoltre se giochiamo una carta il nostro bot ora risponde e le carte vengono disposte nella colonna centrale vicino al mazzo e alla briscola, pero la carta messa dal bot è la sua prima carta che ha in mano. Quindi ora ci basta capire come far rispondere intelligentemente il bot(supponiamo di creare in mini AI) e stiamo per implementare la progressione del gioco.
+# 12.02.2025 - Sesta settimana 
+## Filippo De Vito
+Oggi abbiamo lavorato al bot e alla giocabilità del programma in se. Inizialmente volevamo provare a fare un'ai al bot, ma in quanto risultava troppo complesso abbiamo poi optato a fare un algoritmo per questo, e lasciare l'ai come una possibilità futura. Siamo abbastanza soddisfatti con il risultato del bot e del programma, in teoria questo è ora giocabile, il problema più grande però ora resta la grafica. Questa presenta difatti ancora diversi errori e rende il programma ingiocabile, la prossima settimana lavoreremo su questo per completare e finire il progetto.
