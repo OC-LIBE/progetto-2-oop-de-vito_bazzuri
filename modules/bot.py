@@ -30,6 +30,7 @@ class Bot:
                 self.card_evaluation(-5,1,-1,0)
                 self.card_evaluation(-1,2,-1,0)
                 self.card_evaluation(-3,3,-15,7)
+        return self.pick_card()
         
     def card_evaluation(self,change,priority,briscolamult=0,strozz=0):
         for i in range(len(self.hand)):
@@ -47,15 +48,10 @@ class Bot:
             elif self.hand[i].point >= 10 and priority == 3:
                 self.eval[i] += change * mult + add
     
-    def play(self):
+    def pick_card(self):
         current = [-1000,-1]
         for i in range(len(self.eval)):
             if self.eval[i] > current[0]:
                 current = [self.eval[i],i]
-        return current
-
-# ZONA TEST
-bot = Bot()
-bot.choose([Card(1,"Bastoni"),Card(8,"Denari"),Card(5,"Spade")],Card(6,"Denari"),Card(9,"Spade"))
-print(bot.eval)
-print(bot.play())
+        return current[1]
+    

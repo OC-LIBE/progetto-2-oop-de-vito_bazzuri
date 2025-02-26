@@ -68,4 +68,8 @@ print(weights[2])"""
         else:
             st.image(game.bot.score[0].image, caption = "Bot")
     
-    st.image("static/images/VUOTO.png",width=89) # Width per motivi estetici   """
+    st.image("static/images/VUOTO.png",width=89) # Width per motivi estetici  
+   if game.player.score == []:
+        st.image("static/images/VUOTO.png",width=89) # Width per motivi estetici      
+    else:
+        st.image(game.player.score[0].image, caption = "Player") """
