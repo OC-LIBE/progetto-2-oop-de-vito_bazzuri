@@ -9,16 +9,17 @@ if 'game' not in st.session_state:
 
 
 st.set_page_config(layout="wide")
-game = st.session_state['game']
+game :Game= st.session_state['game']
+
+
+
 
 # Grafiche
 def colonna_bot(nr_col=0):
     if game.bot.cards[nr_col] != None:
         st.image(game.bot.cards[nr_col].image)
-        game.first = game.bot
     else:
         st.image("static/images/VUOTO.png")
-        game.second = game.bot
 
 def colonna_centro(nr_col=0):
     if nr_col == 0:
@@ -38,12 +39,11 @@ def colonna_player(nr_col=0):
                 if game.table.first_card == None:
                     game.table.first = game.player
                     game.table.second = game.bot
-                    game.table.first_card = game.player.cards[nr_col]
+                    game.table.first_card = game.player.play_card(nr_col)
                 else:
-                    game.table.second_card = game.player.cards[nr_col]
+                    game.table.second_card = game.player.play_card(nr_col)
                     game.table.first = game.bot
                     game.table.second = game.player
-                game.player.cards[nr_col] = None
 
 # GRAFICHE RACCHIUSE
 def grafiche():
@@ -68,13 +68,6 @@ def grafiche():
         colonna_bot(2)
         colonna_centro(2)
         colonna_player(2)
-    with col6:
-        if game.bot.score == []:
-            st.image("static/images/VUOTO.png",width=89) # Width per motivi estetici      
-        else:
-            st.image(game.bot.score[0].image, caption = "Bot")
-    
-    st.image("static/images/VUOTO.png",width=89) # Width per motivi estetici   
     
     if game.player.score == []:
         st.image("static/images/VUOTO.png",width=89) # Width per motivi estetici      
@@ -87,10 +80,10 @@ if st.session_state['turno'] == -1:
 if st.session_state['turno'] == -2: # Se tocca al Bot giocare
     if st.button("Next", key="next-2"): 
         if game.table.first_card == None:
-            game.table.first_card = game.bot.cards[0]
+            game.table.first_card = game.bot.play_card(0)
         else:
-            game.table.second_card = game.bot.cards[0]
-        game.bot.cards[0] = None
+            game.table.second_card = game.bot.play_card(0)
+
         st.session_state['turno'] = -3
         grafiche()
 
@@ -102,10 +95,12 @@ if st.session_state['turno'] == -3: # Se hanno entrambi giocato
 
 if st.session_state['turno'] == -4: # Se si devono ridare le carte
     if st.button("Next", key="next-4"):
-        game.table.first = None
-        game.table.second = None
-        game.player.cards.append(game.deck.draw())
-        game.bot.cards.append(game.deck.draw())
+        game.table.clean_table()
+        game.player.add_card(card=game.deck.draw())
+        game.bot.add_card(card=game.deck.draw())
+
+        print(f"Carte giocatore  {game.player.cards}")
+        #testare il vincitore della mano e settare il turno #TODO
         st.session_state['turno'] = -1
         grafiche()
 

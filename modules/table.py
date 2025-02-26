@@ -30,6 +30,12 @@ class Table:
             else:
                 self.first.score.extend([self.second_card, self.first_card]) 
                 self.winner = 1    
-        
+    
+    def clean_table(self):
+        self.second_card =None
+        self.first_card = None
+        self.first = None 
+        self.second = None
+        return "OK"
         
   

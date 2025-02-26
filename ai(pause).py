@@ -61,3 +61,11 @@ outputP = 1/(1+numpy.exp(-outputP)) #sigmoid function
 print(weights[0])
 print(weights[1])
 print(weights[2])"""
+
+"""with col6:
+        if game.bot.score == []:
+            st.image("static/images/VUOTO.png",width=89) # Width per motivi estetici      
+        else:
+            st.image(game.bot.score[0].image, caption = "Bot")
+    
+    st.image("static/images/VUOTO.png",width=89) # Width per motivi estetici   """
