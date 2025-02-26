@@ -6,21 +6,22 @@ suits = ('Denari', 'Coppe', 'Spade', 'Bastoni')
 
 class Deck :
     def __init__(self):
+        #qua diciamo cosa serve per questo oggetto
         self.cards = []
         self.create()
 
-    def __repr__(self):
+    def __repr__(self):#serve per vedere quante carte rimangono al mazzo
         return 'Game deck has {} cards remaining'.format(len(self.cards))
 
-    def create(self):
+    def create(self):# creamo il mazzo formato da carte
         decks = [Card(rank, suit) for suit in suits for rank in range(1, 11)]
         self.cards.extend(decks)
 
-    def shuffle(self):
+    def shuffle(self):#questa è la funzione che mischia ogni nuovo game
         self.cards = random.sample(self.cards, len(self.cards))
 
-    def draw(self):
-        if len(self.cards) == 0:
+    def draw(self):# questa è la funzione che ti permette di pescare una carta dal mazzo
+        if len(self.cards) == 0:#in caso non ci fossero più carte nbon mi fa pescare ulteriormente
             return False
         drawn_card = self.cards[0]
         self.cards.remove(self.cards[0])

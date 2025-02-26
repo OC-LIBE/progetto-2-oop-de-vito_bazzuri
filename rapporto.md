@@ -18,6 +18,11 @@ Abbiamo creato una funzione per calcolare il punteggio finale di un player (poin
 # 12.02.2025 - Quinta settimana 
 ## Loris Bazzuri
 Oggi abbiamo sviluppato ulteriormente l'interfaccia grafica, sistemando il tavolo di gioco aggiungendo una colonna di separazione tra ogni carta(sia mie, sia del bot). Inoltre se giochiamo una carta il nostro bot ora risponde e le carte vengono disposte nella colonna centrale vicino al mazzo e alla briscola, pero la carta messa dal bot è la sua prima carta che ha in mano. Quindi ora ci basta capire come far rispondere intelligentemente il bot(supponiamo di creare in mini AI) e stiamo per implementare la progressione del gioco.
-# 12.02.2025 - Sesta settimana 
+# 19.02.2025 - Sesta settimana 
 ## Filippo De Vito
 Oggi abbiamo lavorato al bot e alla giocabilità del programma in se. Inizialmente volevamo provare a fare un'ai al bot, ma in quanto risultava troppo complesso abbiamo poi optato a fare un algoritmo per questo, e lasciare l'ai come una possibilità futura. Siamo abbastanza soddisfatti con il risultato del bot e del programma, in teoria questo è ora giocabile, il problema più grande però ora resta la grafica. Questa presenta difatti ancora diversi errori e rende il programma ingiocabile, la prossima settimana lavoreremo su questo per completare e finire il progetto.
+# 26.02.2025 - Settima settimana 
+## Loris Bazzuri
+Oggi con l'aiuto del sore abbiamo sistemato quali erano i problemi di grafica creando nuove funzioni (add_card, play_card, new_turn,clean_table) che permettono di fare lavorare la macchina, al posto di dover ogni volta ricreare la logica sull' app.py. 
+Il funzionamento delle funzioni è semplice, l'add_card ci permette di avere una nuova carta in mano dopo che  abbiamo buttato delle carte sul tavolo e che la macchina ha deciso chi ha vinto, poi play_card serve semplicemente per mettere giu una carta (eliminandola dalle tue mani), in seguito clean_table serve per ripuliure il tavolo dalle carte che sono state giocate e riportare il tavolo allo stato iniziale e new_turn serve a cambiare l'ordine dei giocatori per sistemarlo in funzione del vincitore del turno precedente.
+Infine dobbiamo risolvere alcuni problermi: il bot non strozza, togliere i pulsanti next e far fare tutto automaticamente.

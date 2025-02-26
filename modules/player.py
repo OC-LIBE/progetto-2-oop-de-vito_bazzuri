@@ -1,9 +1,9 @@
 import math
 
 class Player:
-    def __init__(self,cards,bot,score=[]):
+    def __init__(self,cards,bot):
         self.cards = []
-        self.score = score
+        self.score = []
         self.cards.extend(cards)
         self.last_index=None
         if bot:

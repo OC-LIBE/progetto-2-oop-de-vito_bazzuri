@@ -1,9 +1,10 @@
 class Card:
     def __init__(self, rank, suit, flip = False):
+        #qua diciamo cosa serve per questo oggetto 
         self.rank = rank
         self.suit = suit
         self.flip = flip
-
+        #qua diamo alle suits (i semi) delle abbreviazioni 
         if self.suit == "Denari":
             self.short_suit = "D"
         elif self.suit == "Coppe":
@@ -33,12 +34,13 @@ class Card:
         return f"{self.rank} di {self.suit}"
     
     def turn(self):
+        #questa funzione serve per poi girare le carte del bot in modo che simuli una vera partita dove tu non conosci le carte del bot, dell'altro player
         self.flip = not self.flip # True to False, False to True
         self.image_set()
         return self
         
     def image_set(self):
-        if not self.flip:
+        if not self.flip:#se la carta non la giri, facendo vedere il retro, allora si vede il seme e il numero della carta
             self.image_location = "static/images/{}{}.jpg".format(
             self.rank, self.short_suit)
         else:
