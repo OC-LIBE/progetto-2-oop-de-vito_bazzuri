@@ -35,18 +35,23 @@ class Bot:
         
     def card_evaluation(self,change,priority,briscol=0,strozz=0):
         for i in range(len(self.hand)):
-            add = 0
-            if self.hand[i].suit == self.briscola.suit:
-                add += briscol
-            elif self.first_card != None and self.hand[i].suit == self.first_card.suit and self.hand[i].rank > self.first_card.rank:
-                add += strozz
-            
-            if self.hand[i].point < 2 and  priority == 1:
-                self.eval[i] += change + add
-            elif self.hand[i].point >= 2 and self.hand[i].point <= 4 and priority == 2:
-                self.eval[i] += change + add
-            elif self.hand[i].point >= 10 and priority == 3:
-                self.eval[i] += change + add
+            if self.hand [i] != None:
+                add = 0
+                
+                if self.hand[i].suit == self.briscola.suit:
+                    add += briscol
+
+                if self.first_card != None and self.hand[i].suit == self.first_card.suit and self.hand[i].point > self.first_card.point:
+                    add += strozz
+                
+                if self.hand[i].point < 2 and  priority == 1:
+                    self.eval[i] += change + add
+                elif self.hand[i].point >= 2 and self.hand[i].point <= 4 and priority == 2:
+                    self.eval[i] += change + add
+                elif self.hand[i].point >= 10 and priority == 3:
+                    self.eval[i] += change + add
+            else:
+                self.eval[i] = -9999
     
     def pick_card(self):
         current = [-1000,-1]

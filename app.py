@@ -85,35 +85,29 @@ if st.session_state['turno'] == "BotTime": # Se tocca al Bot giocare
         st.session_state['turno'] = "MatchTime"
         st.rerun()
 
-        
-        
-
 if st.session_state['turno'] == "MatchTime": # Se hanno entrambi giocato
-  
     game.winner = game.table.win_hand()
     st.session_state['turno'] = "DrawTime"
     st.rerun()
         
-
 if st.session_state['turno'] == "DrawTime": # Se si devono ridare le carte
     if st.button("Next", key="next-4"):
+        game.ai_bot.eval = [0,0,0] # FOR DEBUG HERE TODO
         game.table.clean_table()
-        game.player.add_card(card=game.deck.draw())
-        game.bot.add_card(card=game.deck.draw())
-        print(f"Carte giocatore  {game.player.cards}")
-        #testare il vincitore della mano e settare il turno #TODO
+        if len(game.deck.cards) > 0:
+            game.player.add_card(card=game.deck.draw())
+            game.bot.add_card(card=game.deck.draw())
+            print(f"Carte giocatore  {game.player.cards}")
         game.new_turn()
         st.session_state['turno'] = game.ordine[0]
-        st.rerun()
-        
+        st.rerun()    
 
-if st.button("ripristina la partita"):
-    game.player.score = []
-    game.bot.score = []
+if game.player.cards == [None,None,None] and (st.session_state['turno'] == "PlayerTime" or st.session_state['turno'] == "BotTime" ):
+    st.write("BRAVO")
 
-if st.button("Reload"):
-    st.rerun()
+st.write(game.ai_bot.eval)
 
+st.write(game.player.cards)
 st.write(st.session_state['turno'])
 st.write(game.player.score)
 st.write(game.bot.score)

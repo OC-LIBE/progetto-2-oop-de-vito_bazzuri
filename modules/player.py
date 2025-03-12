@@ -19,7 +19,7 @@ class Player:
         points_sum = 0
         for card in self.score:
             points_sum += math.floor(card.point)
-        return points_sum
+        return int(points_sum)
     
     def add_card(self,card):   # fa in modo che abbiamo sempre 3 carte in mano, tranne alla fine
         if self.last_index != None:
@@ -33,4 +33,6 @@ class Player:
         self.last_index = card_index
         return played_card
         
-
+    @property
+    def points(self):
+        return self.points_sum

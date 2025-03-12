@@ -26,3 +26,7 @@ Oggi abbiamo lavorato al bot e alla giocabilità del programma in se. Inizialmen
 Oggi con l'aiuto del sore abbiamo sistemato quali erano i problemi di grafica creando nuove funzioni (add_card, play_card, new_turn,clean_table) che permettono di fare lavorare la macchina, al posto di dover ogni volta ricreare la logica sull' app.py. 
 Il funzionamento delle funzioni è semplice, l'add_card ci permette di avere una nuova carta in mano dopo che  abbiamo buttato delle carte sul tavolo e che la macchina ha deciso chi ha vinto, poi play_card serve semplicemente per mettere giu una carta (eliminandola dalle tue mani), in seguito clean_table serve per ripuliure il tavolo dalle carte che sono state giocate e riportare il tavolo allo stato iniziale e new_turn serve a cambiare l'ordine dei giocatori per sistemarlo in funzione del vincitore del turno precedente.
 Infine dobbiamo risolvere alcuni problermi: il bot non strozza, togliere i pulsanti next e far fare tutto automaticamente.
+# 12.03.2025 - Ottava settimana
+## Filippo De Vito
+Oggi abbiamo completato il gioco, sistemato la grafica e reso intelligente il bot. L'unica schermata da finire è il momento della vittoria e/o della sconfitta del player. Vorremmo aggiungere una scritta, i punti fatti e magari anche qualche altro dato interessante.
+Abbiamo anche continuato a commentare le varie funzioni e metodi degli oggetti.
