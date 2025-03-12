@@ -6,7 +6,7 @@ suits = ('Denari', 'Coppe', 'Spade', 'Bastoni')
 
 class Deck :
     def __init__(self):
-        #qua diciamo cosa serve per questo oggetto
+     #qua diciamo cosa serve per questo classe
         self.cards = []
         self.create()
 

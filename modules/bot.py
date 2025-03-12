@@ -6,8 +6,8 @@ from modules.card import Card
 
 
 # carta 0, carta 1, carta 2, briscola, first_card
-class Bot:
-    def __init__(self):
+class Bot: 
+    def __init__(self):   #qua diciamo cosa serve per questo classe
             self.eval = [0,0,0]
 
     def choose(self,cards, briscola, first_card):

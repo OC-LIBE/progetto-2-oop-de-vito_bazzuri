@@ -1,6 +1,6 @@
 class Card:
     def __init__(self, rank, suit, flip = False):
-        #qua diciamo cosa serve per questo oggetto 
+        #qua diciamo cosa serve per questo classe
         self.rank = rank
         self.suit = suit
         self.flip = flip
