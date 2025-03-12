@@ -21,14 +21,14 @@ class Deck :
         self.cards = random.sample(self.cards, len(self.cards))
 
     def draw(self):# questa è la funzione che ti permette di pescare una carta dal mazzo
-        if len(self.cards) == 0:#in caso non ci fossero più carte nbon mi fa pescare ulteriormente
+        if len(self.cards) == 0:   #in caso non ci fossero più carte nbon mi fa pescare ulteriormente
             return False
-        drawn_card = self.cards[0]
+        drawn_card = self.cards[0]  #questo serve per far pescare automaticamente la prima carta del mazzo(quella più in alto)
         self.cards.remove(self.cards[0])
         print(len(self.cards))
         return drawn_card
 
-    def reset(self):
+    def reset(self): 
         self.cards = []
         self.create(self.number_of_decks)
 

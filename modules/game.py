@@ -5,7 +5,7 @@ from modules.table import Table
 from modules.bot import Bot
 
 class Game:
-    def __init__(self):
+    def __init__(self): #qua diciamo cosa serve per questo oggetto
         self.deck:Deck = Deck()
         self.deck.shuffle()
         cards = self.starting_hand()
@@ -17,7 +17,7 @@ class Game:
         self.winner = None
         self.ordine = ["PlayerTime","BotTime"]
         
-    def starting_hand(self):
+    def starting_hand(self): # qui facciamo in modo che tutti i giocatori, una volta cominciata una partita, abbiano le carte per iniziare
         player_hand = []
         bot_hand = []
         for i in range(3):

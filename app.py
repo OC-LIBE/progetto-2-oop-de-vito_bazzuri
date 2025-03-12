@@ -20,11 +20,17 @@ def colonna_bot(nr_col=0):
 
 def colonna_centro(nr_col=0):
     if nr_col == 0:
-        st.image("static/images/RETRO.png", caption= game.deck.remaining)
+        if len(game.deck.cards) > 0:
+            st.image("static/images/RETRO.png", caption= game.deck.remaining)
+        else:
+            st.image("static/images/VUOTO.png")
     elif nr_col == 1:
         st.image("static/images/VUOTO.png",width=89) # Width per motivi estetici  
     elif nr_col == 2:
-        st.image(game.deck.last.image, caption = "Briscola")
+        if len(game.deck.cards) > 0:
+            st.image(game.deck.last.image, caption = "Briscola")
+        else:
+            st.image("static/images/VUOTO.png")
 
 def colonna_player(nr_col=0):
     if game.player.cards[nr_col] != None:
@@ -37,11 +43,13 @@ def colonna_player(nr_col=0):
                     game.table.second = game.bot
                     game.table.first_card = game.player.play_card(nr_col)
                     st.session_state['turno'] = "BotTime"
+                    st.rerun()
                 else:
                     game.table.second_card = game.player.play_card(nr_col)
                     game.table.first = game.bot
                     game.table.second = game.player
                     st.session_state['turno'] = "MatchTime"
+                    st.rerun()
 
 # GRAFICHE RACCHIUSE
 col1, col2, col3, col4, col5, col6, col0 = st.columns([0.1,0.1,0.1,0.1,0.1,0.2,0.3]) # Col0 è vuota per lasciare spazio vuoto -> Grafica
@@ -68,21 +76,23 @@ with col5:
 
 # COMANDI    
 if st.session_state['turno'] == "BotTime": # Se tocca al Bot giocare
-    if st.button("Next", key="next-2"): 
-        if game.table.first_card == None:
-            game.table.first_card = game.bot.play_card(game.ai_bot.choose(game.bot.cards,game.table.briscola,game.table.first_card))
-            st.session_state['turno'] = "PlayerTime"
-        else:
-            game.table.second_card = game.bot.play_card(game.ai_bot.choose(game.bot.cards,game.table.briscola,game.table.first_card))
-            st.session_state['turno'] = "MatchTime"
+    if game.table.first_card == None:
+        game.table.first_card = game.bot.play_card(game.ai_bot.choose(game.bot.cards,game.table.briscola,game.table.first_card))
+        st.session_state['turno'] = "PlayerTime"
+        st.rerun()
+    else:
+        game.table.second_card = game.bot.play_card(game.ai_bot.choose(game.bot.cards,game.table.briscola,game.table.first_card))
+        st.session_state['turno'] = "MatchTime"
+        st.rerun()
 
         
         
 
 if st.session_state['turno'] == "MatchTime": # Se hanno entrambi giocato
-    if st.button("Next", key="next-3"):
-        game.winner = game.table.win_hand()
-        st.session_state['turno'] = "DrawTime"
+  
+    game.winner = game.table.win_hand()
+    st.session_state['turno'] = "DrawTime"
+    st.rerun()
         
 
 if st.session_state['turno'] == "DrawTime": # Se si devono ridare le carte
@@ -94,6 +104,7 @@ if st.session_state['turno'] == "DrawTime": # Se si devono ridare le carte
         #testare il vincitore della mano e settare il turno #TODO
         game.new_turn()
         st.session_state['turno'] = game.ordine[0]
+        st.rerun()
         
 
 if st.button("ripristina la partita"):
