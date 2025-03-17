@@ -14,7 +14,7 @@ game :Game= st.session_state['game']
 # Grafiche
 def colonna_bot(nr_col=0):
     if game.bot.cards[nr_col] != None:
-        st.image(game.bot.cards[nr_col].image)
+        st.image("static/images/RETRO.png")
     else:
         st.image("static/images/VUOTO.png")
 
@@ -28,13 +28,13 @@ def colonna_centro(nr_col=0):
         st.image("static/images/VUOTO.png",width=89) # Width per motivi estetici  
     elif nr_col == 2:
         if len(game.deck.cards) > 0:
-            st.image(game.deck.last.image, caption = "Briscola")
+            st.image(game.deck.last.image, caption = "Briscola",width=89)
         else:
             st.image("static/images/VUOTO.png")
 
 def colonna_player(nr_col=0):
     if game.player.cards[nr_col] != None:
-        st.image(game.player.cards[nr_col].image)
+        st.image(game.player.cards[nr_col].image,width=89)
         st.write(game.player.cards[nr_col])
         if st.session_state['turno'] == "PlayerTime": # Se tocca al Player giocare (per primo)
             if st.button("Gioca",key=nr_col):
@@ -56,11 +56,11 @@ col1, col2, col3, col4, col5, col6, col0 = st.columns([0.1,0.1,0.1,0.1,0.1,0.2,0
 with col2:
     if game.table.first_card != None:
         st.image("static/images/VUOTO.png")
-        st.image(game.table.first_card.image)
+        st.image(game.table.first_card.image,width=89)
 with col4:
     if game.table.second_card != None:
         st.image("static/images/VUOTO.png")
-        st.image(game.table.second_card.image)
+        st.image(game.table.second_card.image,width=89)
 with col1:
     colonna_bot(0)
     colonna_centro(0)
@@ -105,9 +105,6 @@ if st.session_state['turno'] == "DrawTime": # Se si devono ridare le carte
 if game.player.cards == [None,None,None] and (st.session_state['turno'] == "PlayerTime" or st.session_state['turno'] == "BotTime" ):
     st.write("BRAVO")
 
-st.write(game.ai_bot.eval)
-
-st.write(game.player.cards)
-st.write(st.session_state['turno'])
-st.write(game.player.score)
-st.write(game.bot.score)
+st.write("Punti:")
+st.write(game.player.points_sum())
+st.write(game.bot.points_sum())

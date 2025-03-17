@@ -41,7 +41,7 @@ class Card:
         
     def image_set(self):
         if not self.flip:#se la carta non la giri, facendo vedere il retro, allora si vede il seme e il numero della carta
-            self.image_location = "static/images/{}{}.jpg".format(
+            self.image_location = "static/images2/{}{}.png".format( ##
             self.rank, self.short_suit)
         else:
             self.image_location = "static/images/RETRO.png"  

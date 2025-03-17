@@ -16,10 +16,10 @@ class Player:
         self.cards = temp
 
     def points_sum(self):  # calcolo per dare il risltato dei punti finali
-        points_sum = 0
+        pts = 0
         for card in self.score:
-            points_sum += math.floor(card.point)
-        return int(points_sum)
+            pts += math.floor(card.point)
+        return int(pts)
     
     def add_card(self,card):   # fa in modo che abbiamo sempre 3 carte in mano, tranne alla fine
         if self.last_index != None:
