@@ -5,8 +5,8 @@ from modules.table import Table
 from modules.bot import Bot
 
 class Game:
-    def __init__(self): #qua diciamo cosa serve per questo classe
-        self.deck:Deck = Deck()
+    def __init__(self, card_type): #qua diciamo cosa serve per questo classe
+        self.deck:Deck = Deck(card_type)
         self.deck.shuffle()
         cards = self.starting_hand()
         self.player:Player = Player(cards=cards[0],bot=False)

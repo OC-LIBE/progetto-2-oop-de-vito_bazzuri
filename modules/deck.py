@@ -1,20 +1,22 @@
 import random
 from modules.card import Card
 from modules.player import Player
-suits = ('Denari', 'Coppe', 'Spade', 'Bastoni')
-
 
 class Deck :
-    def __init__(self):
+    def __init__(self, card_type):
      #qua diciamo cosa serve per questo classe
         self.cards = []
-        self.create()
+        self.create(card_type)
 
     def __repr__(self):#serve per vedere quante carte rimangono al mazzo
         return 'Game deck has {} cards remaining'.format(len(self.cards))
 
-    def create(self):# creamo il mazzo formato da carte
-        decks = [Card(rank, suit) for suit in suits for rank in range(1, 11)]
+    def create(self,card_type):# creamo il mazzo formato da carte
+        if card_type == 1:
+            suits = ('Denari', 'Coppe', 'Spade', 'Bastoni')
+        elif card_type == 2:
+            suits = ('Cuori', 'Quadri', 'Fiori', 'Picche')
+        decks = [Card(rank, suit, card_type) for suit in suits for rank in range(1, 11)]
         self.cards.extend(decks)
 
     def shuffle(self):#questa è la funzione che mischia ogni nuovo game

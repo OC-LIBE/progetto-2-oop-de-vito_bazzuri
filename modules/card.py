@@ -1,17 +1,18 @@
 class Card:
-    def __init__(self, rank, suit, flip = False):
+    def __init__(self, rank, suit, type,flip = False):
         #qua diciamo cosa serve per questo classe
         self.rank = rank
         self.suit = suit
+        self.type = type
         self.flip = flip
         #qua diamo alle suits (i semi) delle abbreviazioni 
-        if self.suit == "Denari":
+        if self.suit == "Denari" or self.suit == "Quadri":
             self.short_suit = "D"
-        elif self.suit == "Coppe":
+        elif self.suit == "Coppe" or self.suit == "Fiori":
             self.short_suit = "C"
-        elif self.suit == "Spade":
+        elif self.suit == "Spade" or self.suit == "Picche":
             self.short_suit = "S"
-        elif self.suit == "Bastoni":
+        elif self.suit == "Bastoni" or self.suit == "Cuori":
             self.short_suit = "B"
 
         # Punti nell'essere presi e Forza nel prendere
@@ -41,8 +42,12 @@ class Card:
         
     def image_set(self):
         if not self.flip:#se la carta non la giri, facendo vedere il retro, allora si vede il seme e il numero della carta
-            self.image_location = "static/images2/{}{}.png".format( ##
-            self.rank, self.short_suit)
+            if self.type == 1:
+                self.image_location = "static/images/{}{}.jpg".format( ##
+                self.rank, self.short_suit)
+            elif self.type == 2:
+                self.image_location = "static/images2/{}{}.png".format( ##
+                self.rank, self.short_suit)
         else:
             self.image_location = "static/images/RETRO.png"  
 
