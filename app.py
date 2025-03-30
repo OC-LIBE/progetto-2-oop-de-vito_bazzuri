@@ -129,7 +129,11 @@ if 'game' in st.session_state:
         st.write(game.player.points_sum())
         st.write("Punti avversari:")
         st.write(game.bot.points_sum())
-        if st.button("Nuova partita"):
-            st.session_state['game'].__init__()
+        if st.button("Nuova partita"): # Rinizia la partita
+            if len(game.player.score) > 0: # Se il player ha preso almeno una carta
+                card_type = game.player.score[0].type # La grafica delle carte è uguale a quella del player
+            else:
+                card_type = game.bot.score[0].type # Sennò del Bot
+            st.session_state['game'].__init__(card_type) # Rinizializa la partita
             st.session_state['turno'] = "PlayerTime" 
             st.rerun()
