@@ -30,3 +30,7 @@ Infine dobbiamo risolvere alcuni problermi: il bot non strozza, togliere i pulsa
 ## Filippo De Vito
 Oggi abbiamo completato il gioco, sistemato la grafica e reso intelligente il bot. L'unica schermata da finire è il momento della vittoria e/o della sconfitta del player. Vorremmo aggiungere una scritta, i punti fatti e magari anche qualche altro dato interessante.
 Abbiamo anche continuato a commentare le varie funzioni e metodi degli oggetti.
+# 02.04.2025 - decima settimana 
+## Loris Bazzuri
+Oggi abbiamo aggiunto delle modifiche per scegliere chi inizia la partita (io o il bot) e che tipo di mazzo vuoi usare.
+Il gioco è terminato e pronto per divertirsi per bene. :)

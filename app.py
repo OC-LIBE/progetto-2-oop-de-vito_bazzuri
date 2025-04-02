@@ -8,7 +8,7 @@ if 'game' not in st.session_state:
     col1, col2, col3= st.columns([0.3,0.3,0.3])
     with col3:
         options = ["Inizio io" , "Inizia avversario"]
-        selection = st.pills("ordine del turno", options, selection_mode="single")
+        selection = st.pills("ordine del turno", options, default= "Inizio io" ,selection_mode="single")
         if selection == "Inizio io":
             ordine = ["PlayerTime","BotTime"]
         else:
