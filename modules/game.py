@@ -5,7 +5,7 @@ from modules.table import Table
 from modules.bot import Bot
 
 class Game:
-    def __init__(self, card_type): #qua diciamo cosa serve per questo classe
+    def __init__(self, card_type, ordine): #qua diciamo cosa serve per questo classe
         self.deck:Deck = Deck(card_type)
         self.deck.shuffle()
         cards = self.starting_hand()
@@ -15,7 +15,7 @@ class Game:
         self.backseventh()
         self.table:Table = Table(briscola=self.deck.last,first_card=None,second_card=None,first=None,second=None)
         self.winner = None
-        self.ordine = ["PlayerTime","BotTime"]
+        self.ordine = ordine
         
     def starting_hand(self): # qui facciamo in modo che tutti i giocatori, una volta cominciata una partita, abbiano le carte per iniziare
         player_hand = []

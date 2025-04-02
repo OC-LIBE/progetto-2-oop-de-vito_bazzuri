@@ -5,21 +5,29 @@ from modules.game import Game
 # SETTING UP THE GAME
 card_width = 90
 if 'game' not in st.session_state:
-    col1, col2= st.columns([0.3,0.3])
+    col1, col2, col3= st.columns([0.3,0.3,0.3])
+    with col3:
+        options = ["Inizio io" , "Inizia avversario"]
+        selection = st.pills("ordine del turno", options, selection_mode="single")
+        if selection == "Inizio io":
+            ordine = ["PlayerTime","BotTime"]
+        else:
+            ordine = ["BotTime","PlayerTime"]
     with col1:
         st.image("static/images2/1B.png",width=card_width)
         if st.button("Francesi"):
             card_type = 2
-            st.session_state['turno'] = "PlayerTime" 
-            st.session_state['game'] = Game(card_type)
+            st.session_state['turno'] = ordine[0]
+            st.session_state['game'] = Game(card_type,ordine)
             st.rerun()
     with col2:
         st.image("static/images/1D.jpg",width=card_width)
         if st.button("Napoletane"):
             card_type = 1
-            st.session_state['turno'] = "PlayerTime" 
-            st.session_state['game'] = Game(card_type)
+            st.session_state['turno'] = ordine[0]
+            st.session_state['game'] = Game(card_type,ordine)
             st.rerun()
+
 
 if 'game' in st.session_state:
     st.set_page_config(layout="wide")
@@ -137,3 +145,5 @@ if 'game' in st.session_state:
             st.session_state['game'].__init__(card_type) # Rinizializa la partita
             st.session_state['turno'] = "PlayerTime" 
             st.rerun()
+    
+    st.write(game.ai_bot.eval)

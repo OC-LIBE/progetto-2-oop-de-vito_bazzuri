@@ -2,8 +2,7 @@ import random
 import math
 from modules.card import Card
 
-# scartine -> priority: 1 ; figure -> priority: 2 ; carichi -> priority: 3
-
+# scartine -> 1 ; figure -> 2 ; carichi -> 3
 
 # carta 0, carta 1, carta 2, briscola, first_card
 class Bot: 
