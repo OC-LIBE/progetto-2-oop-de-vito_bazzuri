@@ -8,7 +8,7 @@ if 'game' not in st.session_state:
     col1, col2, col3= st.columns([0.3,0.3,0.3])
     with col3:
         options = ["Inizio io" , "Inizia avversario"]
-        selection = st.pills("ordine del turno", options, default= "Inizio io" ,selection_mode="single")
+        selection = st.pills("Ordine di gioco", options, default= "Inizio io" ,selection_mode="single")
         if selection == "Inizio io":
             ordine = ["PlayerTime","BotTime"]
         else:
@@ -74,7 +74,7 @@ if 'game' in st.session_state:
                         st.rerun()
 
     # GRAFICHE RACCHIUSE
-    col1, col2, col3, col4, col5, col6, col0 = st.columns([0.1,0.1,0.1,0.1,0.1,0.2,0.3]) # Col0 è vuota per lasciare spazio vuoto -> Grafica
+    col1, col2, col3, col4, col5, col0 = st.columns([0.1,0.1,0.1,0.1,0.1,0.5]) # Col0 è vuota per lasciare spazio vuoto -> Grafica
     with col2:
         if game.table.first_card != None:
             st.image("static/images/VUOTO.png",width=card_width)
@@ -124,6 +124,7 @@ if 'game' in st.session_state:
             st.session_state['turno'] = game.ordine[0]
             st.rerun()    
 
+    # FINE PARTITA
     if game.player.cards == [None,None,None] and (st.session_state['turno'] == "PlayerTime" or st.session_state['turno'] == "BotTime" ):
         if game.player.points_sum() > game.bot.points_sum():
             st.success("Vittoria!")
@@ -145,5 +146,3 @@ if 'game' in st.session_state:
             st.session_state['game'].__init__(card_type) # Rinizializa la partita
             st.session_state['turno'] = "PlayerTime" 
             st.rerun()
-    
-    st.write(game.ai_bot.eval)
