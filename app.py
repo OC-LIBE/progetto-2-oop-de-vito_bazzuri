@@ -2,7 +2,7 @@ import streamlit as st
 import time
 from modules.game import Game
 
-# SETTING UP THE GAME
+# Setup del gioco
 card_width = 90
 if 'game' not in st.session_state:
     col1, col2, col3= st.columns([0.3,0.3,0.3])
@@ -96,7 +96,7 @@ if 'game' in st.session_state:
         colonna_centro(2)
         colonna_player(2)
 
-    # COMANDI    
+    # COMANDI (di chi è il turno)    
     if st.session_state['turno'] == "BotTime": # Se tocca al Bot giocare
         if game.table.first_card == None:
             game.table.first_card = game.bot.play_card(game.ai_bot.choose(game.bot.cards,game.table.briscola,game.table.first_card))
