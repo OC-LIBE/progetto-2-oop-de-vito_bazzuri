@@ -143,6 +143,6 @@ if 'game' in st.session_state:
                 card_type = game.player.score[0].type # La grafica delle carte è uguale a quella del player
             else:
                 card_type = game.bot.score[0].type # Sennò del Bot
-            st.session_state['game'].__init__(card_type) # Rinizializa la partita
+            st.session_state['game'].__init__(card_type,ordine=["PlayerTime","BotTime"]) # Rinizializa la partita
             st.session_state['turno'] = "PlayerTime" 
             st.rerun()
