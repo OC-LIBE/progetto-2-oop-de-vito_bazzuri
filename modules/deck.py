@@ -27,7 +27,6 @@ class Deck :
             return False
         drawn_card = self.cards[0]  #questo serve per far pescare automaticamente la prima carta del mazzo(quella più in alto)
         self.cards.remove(self.cards[0])
-        print(len(self.cards))
         return drawn_card
 
     def reset(self):  #
